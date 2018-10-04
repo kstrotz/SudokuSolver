@@ -13,4 +13,9 @@ int main(int argc, char **argv){
 		return 1;
 	}
 	struct grid *Grid = nGrid();
+	if (Grid == NULL){
+		fprintf(stderr, "Unable to create new grid.\n");
+		return 2;
+	}
+
 }
