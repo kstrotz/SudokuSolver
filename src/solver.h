@@ -17,15 +17,15 @@
 
 struct grid {
 	int status;
-	int values[9][9];
+	int values[ROWS][COLUMNS];
 };
 
 grid* nGrid(void);
-void cRow(void);
-void cCol(void);
-void cBox(void);
-void pGrid(void);
-void dGrid(void);
+void cRow(struct grid* Grid);
+void cCol(struct grid* Grid);
+void cBox(struct grid* Grid);
+void pGrid(const struct grid* Grid);
+void dGrid(struct grid Grid);
 
 #endif
 
