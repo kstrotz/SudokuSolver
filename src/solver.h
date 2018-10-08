@@ -20,12 +20,21 @@ struct grid {
 	int values[ROWS][COLUMNS];
 };
 
-struct grid* nGrid(void);
-void cRow(struct grid* Grid);
-void cCol(struct grid* Grid);
-void cBox(struct grid* Grid);
-void pGrid(const struct grid* Grid);
-void dGrid(struct grid Grid);
+struct tgrid {
+	int tstatus;
+	int tvalues[ROWS][COLUMNS][OPTIONS];
+};
+
+struct grid* ngrid(void);
+struct tgrid* ntgrid(void);
+void filltgrid(const struct grid* Grid);
+void crow(struct grid* Grid);
+void ccol(struct grid* Grid);
+void cbox(struct grid* Grid);
+void pgrid(const struct grid* Grid);
+void dgrid(struct grid* Grid);
+void dtgrid(struct tgrid* tGrid);
+void ptgrid(const struct tgrid* tGrid);
 
 #endif
 

@@ -12,12 +12,19 @@ int main(int argc, char **argv){
 		fprintf(stderr, "Usage: %s\n", argv[0]);
 		return 1;
 	}
-	struct grid *Grid = nGrid();
+	struct grid* Grid = ngrid();
 	if (Grid == NULL){
 		fprintf(stderr, "Unable to create new grid.\n");
 		return 2;
 	}
-	pGrid(Grid);
+	pgrid(Grid);
+	struct tgrid* tGrid = ntgrid();
+	if (tGrid == NULL){
+		fprintf(stderr, "Unable to create new temp grid.\n");
+		return 3;
+	}
+	ptgrid(tGrid);
+
 
 /*
 	for (int i = 0; i < ROWS; i++){
@@ -27,6 +34,7 @@ int main(int argc, char **argv){
 		}
 	}
 */
-
+	free(Grid);
+	free(tGrid);
 	return 0;
 }
