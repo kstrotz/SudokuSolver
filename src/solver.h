@@ -20,7 +20,7 @@ struct grid {
 	int values[ROWS][COLUMNS];
 };
 
-grid* nGrid(void);
+struct grid* nGrid(void);
 void cRow(struct grid* Grid);
 void cCol(struct grid* Grid);
 void cBox(struct grid* Grid);

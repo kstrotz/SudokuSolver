@@ -17,10 +17,16 @@ int main(int argc, char **argv){
 		fprintf(stderr, "Unable to create new grid.\n");
 		return 2;
 	}
+	pGrid(Grid);
+
+/*
 	for (int i = 0; i < ROWS; i++){
 		for (int j = 0; j < COLUMNS; j++){
 			for (int k = 1; k < (COLUMNS+1); k++){
 			}
 		}
 	}
+*/
+
+	return 0;
 }
