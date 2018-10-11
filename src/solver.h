@@ -28,6 +28,7 @@ struct tgrid {
 struct grid* ngrid(void);
 struct tgrid* ntgrid(void);
 void fgrid(struct grid* Grid);
+void fgridtst(struct grid* Grid);
 void ftgrid(const struct grid* Grid, struct tgrid* tGrid);
 void crow(struct grid* Grid);
 void ccol(struct grid* Grid);

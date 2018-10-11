@@ -22,7 +22,7 @@ struct tgrid* ntgrid(void){
 	for (int i = 0; i < ROWS; i++){
 		for (int j = 0; j < COLUMNS; j++){
 			for (int k = 0; k < OPTIONS; k++){
-				tGrid->tvalues[i][j][k] = 1;
+				tGrid->tvalues[i][j][k] = 0;
 			}
 		}
 	}
@@ -62,6 +62,34 @@ void fgrid(struct grid* Grid){
 		for (int j = 0; j < COLUMNS; j++){
 			printf("Enter [%d][%d]: ", (i+1), (j+1));
 			scanf("%d", &(Grid->values[i][j]));
+			if (Grid->values[i][j] < 0 || Grid->values[i][j] > 9){
+				fprintf(stderr, "[ ERROR ] Invalid numeric entry.\n");
+			}
 		}
 	}
+}
+
+void fgridtst(struct grid* Grid){
+	printf("Filling the grid...\n");
+	for (int i = 0; i < ROWS; i++){
+		for (int j = 0; j < COLUMNS; j++){
+			Grid->values[i][j] = (i+1);
+		}
+	}
+}
+
+void ftgrid(const struct grid* Grid, struct tgrid* tGrid){
+	printf("Populating temporary grid...");
+	for (int i = 0; i < ROWS; i++){
+		for (int j = 0; j < COLUMNS; j++){
+			if (Grid->values[i][j] == 0){
+				for (int k = 0; k < OPTIONS; k++){
+					tGrid->tvalues[i][j][k] = 1;
+				}
+			} else {
+				tGrid->tvalues[i][j][(Grid->values[i][j]-1)] = 1;
+			}
+		}
+	}
+	printf("DONE.\n");
 }
