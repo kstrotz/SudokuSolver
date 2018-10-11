@@ -23,17 +23,17 @@ int main(int argc, char **argv){
 		fprintf(stderr, "Unable to create new temp grid.\n");
 		return 3;
 	}
-	ptgrid(tGrid);
+//	ptgrid(tGrid);
 
-
-/*
 	for (int i = 0; i < ROWS; i++){
 		for (int j = 0; j < COLUMNS; j++){
-			for (int k = 1; k < (COLUMNS+1); k++){
-			}
+//			for (int k = 1; k < (COLUMNS+1); k++){
+//			}
+			Grid->values[i][j] = i;
 		}
 	}
-*/
+
+	pgrid(Grid);
 	free(Grid);
 	free(tGrid);
 	return 0;
