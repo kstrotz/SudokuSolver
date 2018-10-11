@@ -18,6 +18,7 @@ int main(int argc, char **argv){
 		return 2;
 	}
 	pgrid(Grid);
+	fgrid(Grid);
 	struct tgrid* tGrid = ntgrid();
 	if (tGrid == NULL){
 		fprintf(stderr, "Unable to create new temp grid.\n");
@@ -25,6 +26,7 @@ int main(int argc, char **argv){
 	}
 //	ptgrid(tGrid);
 
+/*
 	for (int i = 0; i < ROWS; i++){
 		for (int j = 0; j < COLUMNS; j++){
 //			for (int k = 1; k < (COLUMNS+1); k++){
@@ -32,6 +34,7 @@ int main(int argc, char **argv){
 			Grid->values[i][j] = i;
 		}
 	}
+*/
 
 	pgrid(Grid);
 	free(Grid);

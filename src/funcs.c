@@ -56,3 +56,12 @@ void ptgrid(const struct tgrid* tGrid){
 	}
 }
 
+void fgrid(struct grid* Grid){
+	printf("Filling the grid...\n");
+	for (int i = 0; i < ROWS; i++){
+		for (int j = 0; j < COLUMNS; j++){
+			printf("Enter [%d][%d]: ", (i+1), (j+1));
+			scanf("%d", &(Grid->values[i][j]));
+		}
+	}
+}
