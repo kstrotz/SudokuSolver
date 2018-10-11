@@ -30,7 +30,7 @@ struct tgrid* ntgrid(void);
 void fgrid(struct grid* Grid);
 void fgridtst(struct grid* Grid);
 void ftgrid(const struct grid* Grid, struct tgrid* tGrid);
-void crow(struct grid* Grid);
+void crow(struct grid* Grid, struct tgrid* tGrid, int row);
 void ccol(struct grid* Grid);
 void cbox(struct grid* Grid);
 void pgrid(const struct grid* Grid);

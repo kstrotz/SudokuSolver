@@ -93,3 +93,15 @@ void ftgrid(const struct grid* Grid, struct tgrid* tGrid){
 	}
 	printf("DONE.\n");
 }
+
+void crow(struct grid* Grid, struct tgrid* tGrid, int row){
+	for (int j = 0; j < COLUMNS; j++){
+		if (Grid->values[row][j] != 0){
+			for (int tj = 0; tj < COLUMNS; tj++){
+				tGrid->tvalues[row][tj][((Grid->values[row][j])-1)] = 0;
+			}
+			tGrid->tvalues[row][j][((Grid->values[row][j])-1)] = 1;
+		}
+	}
+}
+

@@ -34,6 +34,7 @@ int main(int argc, char **argv){
 	ftgrid(Grid, tGrid);
 
 	pgrid(Grid);
+	ptgrid(tGrid);
 	free(Grid);
 	free(tGrid);
 	return 0;
