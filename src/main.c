@@ -7,7 +7,7 @@
 
 #include "solver.h"
 
-int main(int argc, char **argv){
+int main(int argc, char** argv){
 	if (argc > 1){
 		fprintf(stderr, "Usage: %s\n", argv[0]);
 		return 1;
@@ -32,9 +32,11 @@ int main(int argc, char **argv){
 	}
 
 	ftgrid(Grid, tGrid);
-
 	pgrid(Grid);
-	ptgrid(tGrid);
+//	ptgrid(tGrid);
+	crow(Grid, tGrid, 4);
+	pgrid(Grid);
+//	ptgrid(tGrid);	
 	free(Grid);
 	free(tGrid);
 	return 0;

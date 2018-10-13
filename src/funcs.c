@@ -171,13 +171,35 @@ void ftgrid(const struct grid* Grid, struct tgrid* tGrid){
 }
 
 void crow(struct grid* Grid, struct tgrid* tGrid, int row){
-	for (int j = 0; j < COLUMNS; j++){
-		if (Grid->values[row][j] != 0){
-			for (int tj = 0; tj < COLUMNS; tj++){
-				tGrid->tvalues[row][tj][((Grid->values[row][j])-1)] = 0;
+	int rsum = 0;
+	int opt = 0;
+	int jval = 0;
+#ifdef TEST
+	printf("rsum = %d\n", rsum);
+#endif
+	for (int k = 0; k < OPTIONS; k++){
+#ifdef TEST
+		printf("rsum = %d\n", rsum);
+#endif
+		for (int j = 0; j < COLUMNS; j++){
+			rsum += tGrid->tvalues[row][j][k];
+#ifdef TEST
+			printf("rsum = %d\n", rsum);
+#endif
+			if (tGrid->tvalues[row][j][k] == 1){
+				opt = (k+1);
+				int jval = j;
 			}
-			tGrid->tvalues[row][j][((Grid->values[row][j])-1)] = 1;
 		}
+#ifdef TEST 
+		printf("rsum = %d\n", rsum);
+		printf("opt = %d\n", opt);
+#endif
+		if (rsum == 1){
+			Grid->values[row][jval] = opt;
+			break;
+		}
+		rsum = 0;
 	}
 }
 
