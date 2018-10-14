@@ -37,6 +37,8 @@ int main(int argc, char** argv){
 	crow(Grid, tGrid, 4);
 	pgrid(Grid);
 //	ptgrid(tGrid);	
+	ccol(Grid, tGrid, 4);
+	pgrid(Grid);
 	free(Grid);
 	free(tGrid);
 	return 0;

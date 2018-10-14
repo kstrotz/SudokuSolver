@@ -38,6 +38,7 @@ void pgrid(const struct grid* Grid){
 		printf("|\n");
 		printf("+---+---+---+---+---+---+---+---+---+\n");
 	}
+	printf("\n");
 }
 
 void ptgrid(const struct tgrid* tGrid){
@@ -120,7 +121,7 @@ void fgridtst(struct grid* Grid){
 	Grid->values[5][1] = 0;
 	Grid->values[5][2] = 0;
 	Grid->values[5][3] = 0;
-	Grid->values[5][4] = 0;
+	Grid->values[5][4] = 2;
 	Grid->values[5][5] = 1;
 	Grid->values[5][6] = 8;
 	Grid->values[5][7] = 0;
@@ -174,32 +175,49 @@ void crow(struct grid* Grid, struct tgrid* tGrid, int row){
 	int rsum = 0;
 	int opt = 0;
 	int jval = 0;
-#ifdef TEST
-	printf("rsum = %d\n", rsum);
-#endif
 	for (int k = 0; k < OPTIONS; k++){
-#ifdef TEST
-		printf("rsum = %d\n", rsum);
-#endif
+		rsum = 0;
 		for (int j = 0; j < COLUMNS; j++){
-			rsum += tGrid->tvalues[row][j][k];
-#ifdef TEST
-			printf("rsum = %d\n", rsum);
-#endif
 			if (tGrid->tvalues[row][j][k] == 1){
+				rsum += 1;
 				opt = (k+1);
-				int jval = j;
+				jval = j;
 			}
 		}
-#ifdef TEST 
-		printf("rsum = %d\n", rsum);
-		printf("opt = %d\n", opt);
-#endif
 		if (rsum == 1){
 			Grid->values[row][jval] = opt;
-			break;
+			for (int c = 0; c < OPTIONS; c++){
+				if (c != (opt-1)){
+					tGrid->tvalues[row][jval][c] = 0;
+				}
+			}
 		}
-		rsum = 0;
+	}
+}
+
+void ccol(struct grid* Grid, struct tgrid* tGrid, int col){
+	int csum = 0;
+	int opt = 0;
+	int ival = 0;
+	for (int k = 0; k < OPTIONS; k++){
+		csum = 0;
+		for (int i = 0; i < ROWS; i++){
+			if (tGrid->tvalues[i][col][k] == 1){
+				csum += 1;
+				opt = (k+1);
+				ival = i;
+			}
+			printf("csum = %d\nival = %d\n", csum, ival);
+		}
+		if (csum == 1){
+			Grid->values[ival][col] = opt;
+			for (int r = 0; r < OPTIONS; r++){
+				if (r != (opt-1)){
+					tGrid->tvalues[ival][col][r] = 0;
+				}
+			}
+		}
+	printf("\n");
 	}
 }
 
