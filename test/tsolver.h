@@ -29,5 +29,7 @@ struct row* nrow(void);
 struct trow* ntrow(void);
 void tcrow(struct row* Row, struct trow* tRow);
 void prow(struct row* Row);
+void ptrow(struct trow* tRow);
+void ftrow(const struct row* Row, struct trow* tRow);
 
 #endif
