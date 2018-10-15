@@ -15,6 +15,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+enum results {
+	SOLVED,
+	INV_ARGS,
+	GPTR_FAIL,
+	TPTR_FAIL
+};
+
 struct grid {
 	int status;
 	int values[ROWS][COLUMNS];
@@ -32,7 +39,7 @@ void fgridtst(struct grid* Grid);
 void ftgrid(const struct grid* Grid, struct tgrid* tGrid);
 void crow(struct grid* Grid, struct tgrid* tGrid, int row);
 void ccol(struct grid* Grid, struct tgrid* tGrid, int col);
-void cbox(struct grid* Grid);
+void cbox(struct grid* Grid, struct tgrid* tGrid, int box);
 void pgrid(const struct grid* Grid);
 void dgrid(struct grid* Grid);
 void dtgrid(struct tgrid* tGrid);
