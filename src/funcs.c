@@ -207,7 +207,6 @@ void ccol(struct grid* Grid, struct tgrid* tGrid, int col){
 				opt = (k+1);
 				ival = i;
 			}
-			printf("csum = %d\nival = %d\n", csum, ival);
 		}
 		if (csum == 1){
 			Grid->values[ival][col] = opt;
@@ -217,7 +216,6 @@ void ccol(struct grid* Grid, struct tgrid* tGrid, int col){
 				}
 			}
 		}
-	printf("\n");
 	}
 }
 
