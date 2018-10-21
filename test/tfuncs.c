@@ -83,4 +83,37 @@ void ftrow(const struct row* Row, struct trow* tRow){
 	}
 }
 
+struct box* nbox(void){
+	struct box* Box = (struct box*) malloc(sizeof(struct box));
+	for (int i = 0; i < (ROWS/3); i++){
+		for (int j = 0; j < (ROWS/3); j++){
+			Box->bvalues[i][j] = 0;
+		}
+	}
+	return Box;
+}
 
+struct tbox* ntbox(void){
+	struct tbox* tBox = (struct tbox*) malloc(sizeof(struct row));
+	for (int i = 0; i < (ROWS/3); i++){
+		for (int j = 0; j < (COLUMNS/3); j++){
+			for (int k = 0; k < OPTIONS; k++){
+				tBox->tbvalues[i][j][k] = 0;
+			}
+		}
+	}
+	return tBox;
+}
+
+void pbox(const struct box* Box){
+	printf("+---+---+---+\n");
+	for (int i = 0; i < (ROWS/3); i++){
+		for (int j = 0; j < (COLUMNS/3); j++){
+			printf("| %d ", Box->bvalues[i][j];
+		}
+		printf("|\n+---+---+---+\n");
+	}
+}
+
+void ptbox(const struct tbox* tBox){
+	
