@@ -142,3 +142,33 @@ void ftbox(const struct box* Box, struct tbox* tBox){
 	}
 }
 
+void tcbox(struct box* Box, struct tbox* tBox){
+	int bsum = 0;
+	int opt = 0;
+	int row = 0;
+	int col = 0;
+	printf("bsum = %d\n", bsum);
+	for (int i = 0; i < ROWS/3; i++){
+		for (int j = 0; j < COLUMNS/3; j++){
+			bsum = 0;
+			for (int k = 0; k < OPTIONS; k++){
+				if (tBox->tbvalues[i][j][k] == 1){
+					bsum += 1;
+					opt = (k+1);
+					row = i;
+					col = j;
+				}
+			printf("bsum = %d\n", bsum);
+			}
+			if (bsum == 1){
+				Box->bvalues[i][j] = opt;
+				for (int b = 0; b < OPTIONS; b++){
+					if (b != (opt-1)){
+						tBox->tbvalues[row][col][b] = 0;
+					}
+				}
+			}
+		}
+	}
+}
+

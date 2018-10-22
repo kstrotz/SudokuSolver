@@ -27,10 +27,10 @@ int main(int argc, char** argv){
 	ftbox(Box, tBox);
 	ptbox(tBox);
 
-//	tcbox(Box, tBox);
-//	ptbox(tBox);
+	tcbox(Box, tBox);
+	ptbox(tBox);
 
-//	pBox(Box);
+	pbox(Box);
 
 	free(Box);
 	free(tBox);
