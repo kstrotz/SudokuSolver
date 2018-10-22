@@ -10,11 +10,15 @@
 int main(int argc, char** argv){
 
 	struct box* Box = nbox();
-	for (int i = 0; i < (ROWS-6); i++){
-		for (int j = 0; j < (COLUMNS-6); j++){
-			Box->bvalues[i][j] = i*(j+1);
-		}
-	}
+	Box->bvalues[0][0] = 1;
+	Box->bvalues[0][1] = 2;
+	Box->bvalues[0][2] = 3;
+	Box->bvalues[1][0] = 4;
+	Box->bvalues[1][1] = 5;
+	Box->bvalues[1][2] = 6;
+	Box->bvalues[2][0] = 7;
+	Box->bvalues[2][1] = 8;
+	Box->bvalues[2][2] = 0;
 
 	struct tbox* tBox = ntbox();
 	pbox(Box);
@@ -23,10 +27,10 @@ int main(int argc, char** argv){
 	ftbox(Box, tBox);
 	ptbox(tBox);
 
-	tcbox(Box, tBox);
-	ptbox(tBox);
+//	tcbox(Box, tBox);
+//	ptbox(tBox);
 
-	pBox(Box);
+//	pBox(Box);
 
 	free(Box);
 	free(tBox);

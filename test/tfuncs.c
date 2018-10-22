@@ -94,7 +94,7 @@ struct box* nbox(void){
 }
 
 struct tbox* ntbox(void){
-	struct tbox* tBox = (struct tbox*) malloc(sizeof(struct row));
+	struct tbox* tBox = (struct tbox*) malloc(sizeof(struct tbox));
 	for (int i = 0; i < (ROWS/3); i++){
 		for (int j = 0; j < (COLUMNS/3); j++){
 			for (int k = 0; k < OPTIONS; k++){
@@ -109,11 +109,36 @@ void pbox(const struct box* Box){
 	printf("+---+---+---+\n");
 	for (int i = 0; i < (ROWS/3); i++){
 		for (int j = 0; j < (COLUMNS/3); j++){
-			printf("| %d ", Box->bvalues[i][j];
+			printf("| %d ", Box->bvalues[i][j]);
 		}
 		printf("|\n+---+---+---+\n");
 	}
 }
 
 void ptbox(const struct tbox* tBox){
-	
+	for (int k = 0; k < OPTIONS; k++){
+		printf("\nLayer %d:\n", (k+1));
+		printf("\n+---+---+---+\n");
+		for (int i = 0; i < ROWS/3; i++){
+			for (int j = 0; j < COLUMNS/3; j++){
+				printf("| %d ", tBox->tbvalues[i][j][k]);
+			}
+			printf("|\n+---+---+---+\n");
+		}
+	}
+}
+
+void ftbox(const struct box* Box, struct tbox* tBox){
+	for (int i = 0; i < ROWS/3; i++){
+		for (int j = 0; j < COLUMNS/3; j++){
+			if (Box->bvalues[i][j] == 0){
+				for (int k = 0; k < OPTIONS; k++){
+					tBox->tbvalues[i][j][k] = 1;
+				}
+			} else {
+				tBox->tbvalues[i][j][(Box->bvalues[i][j]-1)] = 1;
+			}
+		}
+	}
+}
+
