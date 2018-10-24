@@ -148,10 +148,10 @@ void tcbox(struct box* Box, struct tbox* tBox){
 	int row = 0;
 	int col = 0;
 	printf("bsum = %d\n", bsum);
-	for (int i = 0; i < ROWS/3; i++){
-		for (int j = 0; j < COLUMNS/3; j++){
-			bsum = 0;
-			for (int k = 0; k < OPTIONS; k++){
+	for (int k = 0; k < OPTIONS; k++){
+		bsum = 0;
+		for (int i = 0; i < ROWS/3; i++){
+			for (int j = 0; j < COLUMNS/3; j++){
 				if (tBox->tbvalues[i][j][k] == 1){
 					bsum += 1;
 					opt = (k+1);
@@ -160,12 +160,12 @@ void tcbox(struct box* Box, struct tbox* tBox){
 				}
 			printf("bsum = %d\n", bsum);
 			}
-			if (bsum == 1){
-				Box->bvalues[i][j] = opt;
-				for (int b = 0; b < OPTIONS; b++){
-					if (b != (opt-1)){
-						tBox->tbvalues[row][col][b] = 0;
-					}
+		}
+		if (bsum == 1){
+			Box->bvalues[row][col] = opt;
+			for (int b = 0; b < OPTIONS; b++){
+				if (b != (opt-1)){
+					tBox->tbvalues[row][col][b] = 0;
 				}
 			}
 		}
