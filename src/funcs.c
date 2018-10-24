@@ -317,6 +317,26 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 //	printf("\n");
 }
 
+void cgrid(struct grid* Grid, struct tgrid* tGrid){
+	int optsum = 0;
+	int opt = 0;
+	for (int i = 0; i < ROWS; i++){
+		for (int j = 0; j < COLUMNS; j++){
+			for (int k = 0; k < OPTIONS; k++){
+				optsum += tGrid->tvalues[i][j][k];
+				if (tGrid->tvalues[i][j][k] == 1){
+					opt = (k+1);
+				}
+			}
+			if (optsum == 1){
+				Grid->values[i][j] = opt;
+			}
+			opt = 0;
+			optsum = 0;
+		}
+	}	
+}
+
 int chkgrid(const struct grid* Grid){
 	int sum = 0;
 	for (int i = 0; i < ROWS; i++){

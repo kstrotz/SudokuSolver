@@ -22,7 +22,7 @@ int main(int argc, char** argv){
 		return GPTR_FAIL;
 	}
 
-// Compile-time option for a pre-filled test grid.
+// Compile-time option for a pre-filled test grid. To use compile with '-D TEST' flag in gcc.
 #ifndef TEST
 	fgrid(Grid);
 #else
@@ -39,20 +39,28 @@ int main(int argc, char** argv){
 	// Fill temp grid based on grid status.
 	ftgrid(Grid, tGrid);
 	int sum = 0;
-	while (sum != 405){
+	pgrid(Grid);
+//	ptgrid(tGrid);
+//	while (sum != 405){
 		for (int i = 0; i < ROWS; i++){
 			crow(Grid, tGrid, i);
 		}
+		pgrid(Grid);
 		for (int j = 0; j < COLUMNS; j++){
 			ccol(Grid, tGrid, j);
 		}
+		pgrid(Grid);
 		for (int m = 1; m <= 9; m++){
 			cbox(Grid, tGrid, m);
 		}
+		pgrid(Grid);
+		cgrid(Grid, tGrid);
+		pgrid(Grid);
 		sum = chkgrid(Grid);
 		printf("sum: %d\n", sum);
 		pgrid(Grid);
-	}
+		ptgrid(tGrid);
+//	}
 	pgrid(Grid);
 	free(Grid);
 	free(tGrid);

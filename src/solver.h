@@ -40,6 +40,7 @@ void ftgrid(const struct grid* Grid, struct tgrid* tGrid);
 void crow(struct grid* Grid, struct tgrid* tGrid, int row);
 void ccol(struct grid* Grid, struct tgrid* tGrid, int col);
 void cbox(struct grid* Grid, struct tgrid* tGrid, int box);
+void cgrid(struct grid* Grid, struct tgrid* tGrid);
 void pgrid(const struct grid* Grid);
 void dgrid(struct grid* Grid);
 void dtgrid(struct tgrid* tGrid);
