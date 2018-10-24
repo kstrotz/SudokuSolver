@@ -44,6 +44,7 @@ void pgrid(const struct grid* Grid);
 void dgrid(struct grid* Grid);
 void dtgrid(struct tgrid* tGrid);
 void ptgrid(const struct tgrid* tGrid);
+int chkgrid(const struct grid* Grid);
 
 #endif
 

@@ -225,7 +225,7 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 	int row = 0;
 	int col = 0;
 	int rmin, cmin, rmax, cmax;
-	printf("bsum = %d\n", bsum);
+//	printf("bsum = %d\n", bsum);
 
 	switch (box) {
 		case 1:
@@ -290,7 +290,7 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 			break;
 	}
 
-	printf("i: %d\nj: %d\nrmax: %d\ncmax: %d\n", rmin, cmin, rmax, cmax);
+//	printf("i: %d\nj: %d\nrmax: %d\ncmax: %d\n", rmin, cmin, rmax, cmax);
 
 	for (int k = 0; k < OPTIONS; k++){
 		bsum = 0;
@@ -302,7 +302,7 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 					row = i; 
 					col = j;
 				}
-			printf("i: %d j: %d bsum = %d\n",i, j, bsum);
+//			printf("i: %d j: %d bsum = %d\n",i, j, bsum);
 			}		
 		}
 		if (bsum == 1){
@@ -314,5 +314,16 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 			}
 		}
 	}
-	printf("\n");
+//	printf("\n");
 }
+
+int chkgrid(const struct grid* Grid){
+	int sum = 0;
+	for (int i = 0; i < ROWS; i++){
+		for (int j = 0; j < COLUMNS; j++){
+			sum += Grid->values[i][j];
+		}
+	}
+	return sum;
+}
+
