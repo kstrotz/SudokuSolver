@@ -120,7 +120,7 @@ void fgridtst(struct grid* Grid){
 	Grid->values[5][0] = 0;
 	Grid->values[5][1] = 0;
 	Grid->values[5][2] = 0;
-	Grid->values[5][3] = 0;
+	Grid->values[5][3] = 5;
 	Grid->values[5][4] = 2;
 	Grid->values[5][5] = 1;
 	Grid->values[5][6] = 8;
@@ -219,3 +219,100 @@ void ccol(struct grid* Grid, struct tgrid* tGrid, int col){
 	}
 }
 
+void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
+	int bsum = 0;
+	int opt = 0;
+	int row = 0;
+	int col = 0;
+	int rmin, cmin, rmax, cmax;
+	printf("bsum = %d\n", bsum);
+
+	switch (box) {
+		case 1:
+			rmin = 0;
+			cmin = 0;
+			rmax = 3;
+			cmax = 3;
+			break;
+		case 2:	
+			rmin = 0;
+			cmin = 3;
+			rmax = 3;
+			cmax = 6;
+			break;
+		case 3:	
+			rmin = 0;
+			cmin = 6;
+			rmax = 3;
+			cmax = 9;
+			break;
+		case 4:
+			rmin = 3;
+			cmin = 0;
+			rmax = 6;
+			cmax = 3;
+			break;
+		case 5:
+			rmin = 3;
+			cmin = 3;
+			rmax = 6;
+			cmax = 6;
+			break;
+		case 6:	
+			rmin = 3;
+			cmin = 6;
+			rmax = 6;
+			cmax = 9;
+			break;
+		case 7:
+			rmin = 6;
+			cmin = 0;
+			rmax = 9;
+			cmax = 3;
+			break;
+		case 8:
+			rmin = 6;
+			cmin = 3;
+			rmax = 9;
+			cmax = 6;
+			break;
+		case 9:
+			rmin = 6;
+			cmin = 6;
+			rmax = 9;
+			cmax = 9;
+			break;
+		default:
+			rmin = 0;
+			cmin = 0;
+			rmax = 3;
+			cmax = 3;
+			break;
+	}
+
+	printf("i: %d\nj: %d\nrmax: %d\ncmax: %d\n", rmin, cmin, rmax, cmax);
+
+	for (int k = 0; k < OPTIONS; k++){
+		bsum = 0;
+		for (int i = rmin; i < rmax; i++){
+			for (int j = cmin; j < cmax; j++){
+				if (tGrid->tvalues[i][j][k] == 1){
+					bsum += 1;
+					opt = (k+1);
+					row = i; 
+					col = j;
+				}
+			printf("i: %d j: %d bsum = %d\n",i, j, bsum);
+			}		
+		}
+		if (bsum == 1){
+			Grid->values[row][col] = opt;
+			for (int b = 0; b < OPTIONS; b++){
+				if (b != (opt-1)){
+					tGrid->tvalues[row][col][b] = 0;
+				}
+			}
+		}
+	}
+	printf("\n");
+}

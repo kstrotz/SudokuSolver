@@ -43,6 +43,8 @@ int main(int argc, char** argv){
 	pgrid(Grid);
 	ccol(Grid, tGrid, 4);
 	pgrid(Grid);
+	cbox(Grid, tGrid, 5);
+	pgrid(Grid);
 	free(Grid);
 	free(tGrid);
 	
