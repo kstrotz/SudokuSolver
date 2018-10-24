@@ -328,6 +328,7 @@ void cgrid(struct grid* Grid, struct tgrid* tGrid){
 					opt = (k+1);
 				}
 			}
+			printf("[%d][%d] optsum = %d\n", i, j, optsum);
 			if (optsum == 1){
 				Grid->values[i][j] = opt;
 			}
@@ -335,6 +336,21 @@ void cgrid(struct grid* Grid, struct tgrid* tGrid){
 			optsum = 0;
 		}
 	}	
+}
+
+void updrctgrid(const struct grid* Grid, struct tgrid* tGrid){
+	for (int i = 0; i < ROWS; i++){
+		for (int j = 0; j < COLUMNS; j++){
+			if (Grid->values[i][j] != 0){
+				for (int ti = 0; ti < ROWS; ti++){
+					tGrid->tvalues[ti][j][((Grid->values[i][j])-1)] = 0;
+				}
+				for (int tj = 0; tj < COLUMNS; tj++){
+					tGrid->tvalues[i][tj][((Grid->values[i][j])-1)] = 0;
+				}
+			}
+		}
+	}
 }
 
 int chkgrid(const struct grid* Grid){
