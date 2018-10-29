@@ -25,6 +25,7 @@ This is intended as a purely personal project, and no guarantee is made of
 any functionality.  Feel free to fork or clone as desired.
 
 To use:
+
 	1. git clone https://github.com/kstrotz/SudokuSolver.git
 	2. cd src
 	3. gcc main.c funcs.c [-o ../target/debug/solver] [-D TEST]
