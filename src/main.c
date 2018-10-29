@@ -42,38 +42,46 @@ int main(int argc, char** argv){
 	pgrid(Grid);
 //	ptgrid(tGrid);
 //	while (sum != 405){
+	for (int y = 0; y < 3; y++){
 		for (int i = 0; i < ROWS; i++){
 			crow(Grid, tGrid, i);
 		}
 		sum = chkgrid(Grid);
 		printf("sum: %d\n", sum);
-//		pgrid(Grid);
+		pgrid(Grid);
 		for (int j = 0; j < COLUMNS; j++){
 			ccol(Grid, tGrid, j);
 		}
 		sum = chkgrid(Grid);
 		printf("sum: %d\n", sum);
-//		pgrid(Grid);
+		pgrid(Grid);
 		for (int m = 1; m <= 9; m++){
 			cbox(Grid, tGrid, m);
 		}
 		sum = chkgrid(Grid);
 		printf("sum: %d\n", sum);
-		updrctgrid(Grid, tGrid);
+		pgrid(Grid);
+//		updrctgrid(Grid, tGrid);
 		for (int m = 1; m <= 9; m++){
 			cbox(Grid, tGrid, m);
 		}
 		sum = chkgrid(Grid);
 		printf("sum: %d\n", sum);
-//		pgrid(Grid);
+		pgrid(Grid);
 		cgrid(Grid, tGrid);
-//		pgrid(Grid);
+		pgrid(Grid);
 		sum = chkgrid(Grid);
 		printf("sum: %d\n", sum);
 		pgrid(Grid);
 //		ptgrid(tGrid);
+		updrctgrid(Grid, tGrid);
+		cgrid(Grid, tGrid);
+		sum = chkgrid(Grid);
+		printf("sum: %d\n", sum);
+//		ptgrid(tGrid);
+	}
 //	}
-//	pgrid(Grid);
+	pgrid(Grid);
 	free(Grid);
 	free(tGrid);
 	
