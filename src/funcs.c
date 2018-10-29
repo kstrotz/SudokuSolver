@@ -193,6 +193,9 @@ void crow(struct grid* Grid, struct tgrid* tGrid, int row){
 			}
 		}
 	}
+	pgrid(Grid);
+	char ch;
+	scanf("%c",&ch);
 }
 
 void ccol(struct grid* Grid, struct tgrid* tGrid, int col){
@@ -217,6 +220,9 @@ void ccol(struct grid* Grid, struct tgrid* tGrid, int col){
 			}
 		}
 	}
+	pgrid(Grid);
+	char ch;
+	scanf("%c",&ch);
 }
 
 void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
@@ -314,7 +320,9 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 			}
 		}
 	}
-//	printf("\n");
+	pgrid(Grid);
+	char ch;
+	scanf("%c",&ch);
 }
 
 void cgrid(struct grid* Grid, struct tgrid* tGrid){
