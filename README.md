@@ -30,7 +30,8 @@ To use:
 	2. cd src
 	3. gcc main.c funcs.c [-o ../target/debug/solver] [-D TEST]
 
-The -o flag allows you to specify an output file. Default is ./a.out
+The -o flag allows you to specify an output file. Default is ./a.out.
+
 The -D flag with the TEST parameter will compile using a test grid. Leave
 this flag out to allow the user to input a grid.
 
