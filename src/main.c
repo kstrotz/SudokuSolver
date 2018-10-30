@@ -41,46 +41,49 @@ int main(int argc, char** argv){
 	int sum = 0;
 	pgrid(Grid);
 //	ptgrid(tGrid);
-//	while (sum != 405){
-	for (int y = 0; y < 3; y++){
+	while (sum != 405){
+//	for (int y = 0; y < 3; y++){
 		for (int i = 0; i < ROWS; i++){
 			crow(Grid, tGrid, i);
 		}
 		sum = chkgrid(Grid);
-		printf("sum: %d\n", sum);
-		pgrid(Grid);
+//		printf("sum: %d\n", sum);
+//		pgrid(Grid);
 		for (int j = 0; j < COLUMNS; j++){
 			ccol(Grid, tGrid, j);
 		}
 		sum = chkgrid(Grid);
-		printf("sum: %d\n", sum);
-		pgrid(Grid);
+//		printf("sum: %d\n", sum);
+//		pgrid(Grid);
 		for (int m = 1; m <= 9; m++){
 			cbox(Grid, tGrid, m);
 		}
 		sum = chkgrid(Grid);
-		printf("sum: %d\n", sum);
-		pgrid(Grid);
+//		printf("sum: %d\n", sum);
+//		pgrid(Grid);
 //		updrctgrid(Grid, tGrid);
 		for (int m = 1; m <= 9; m++){
 			cbox(Grid, tGrid, m);
 		}
 		sum = chkgrid(Grid);
-		printf("sum: %d\n", sum);
-		pgrid(Grid);
+//		printf("sum: %d\n", sum);
+//		pgrid(Grid);
 		cgrid(Grid, tGrid);
-		pgrid(Grid);
+//		pgrid(Grid);
 		sum = chkgrid(Grid);
-		printf("sum: %d\n", sum);
-		pgrid(Grid);
+//		printf("sum: %d\n", sum);
+//		pgrid(Grid);
 //		ptgrid(tGrid);
 		updrctgrid(Grid, tGrid);
 		cgrid(Grid, tGrid);
 		sum = chkgrid(Grid);
-		printf("sum: %d\n", sum);
+//		printf("sum: %d\n", sum);
 //		ptgrid(tGrid);
-	}
 //	}
+	}
+	printf("  |   |   |   |   |   |   |   |   |");
+	printf("\n \\ / \\ / \\ / \\ / \\ / \\ / \\ / \\ / \\ /");
+	printf("\n  *   *   *   *   *   *   *   *   *\n\n");
 	pgrid(Grid);
 	free(Grid);
 	free(tGrid);

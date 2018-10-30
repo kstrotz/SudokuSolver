@@ -175,7 +175,7 @@ void crow(struct grid* Grid, struct tgrid* tGrid, int row){
 	int rsum = 0;
 	int opt = 0;
 	int jval = 0;
-	printf("Checking row %d.\n", row);
+//	printf("Checking row %d.\n", row);
 	for (int k = 0; k < OPTIONS; k++){
 		rsum = 0;
 		for (int j = 0; j < COLUMNS; j++){
@@ -186,7 +186,7 @@ void crow(struct grid* Grid, struct tgrid* tGrid, int row){
 			}
 		}
 		if (rsum == 1){
-			printf("Found match for [%d][%d].\n", row, jval);
+//			printf("Found match for [%d][%d].\n", row, jval);
 			Grid->values[row][jval] = opt;
 			for (int c = 0; c < OPTIONS; c++){
 				if (c != (opt-1)){
@@ -204,7 +204,7 @@ void ccol(struct grid* Grid, struct tgrid* tGrid, int col){
 	int csum = 0;
 	int opt = 0;
 	int ival = 0;
-	printf("Checking column %d.\n", col);
+//	printf("Checking column %d.\n", col);
 	for (int k = 0; k < OPTIONS; k++){
 		csum = 0;
 		for (int i = 0; i < ROWS; i++){
@@ -215,7 +215,7 @@ void ccol(struct grid* Grid, struct tgrid* tGrid, int col){
 			}
 		}
 		if (csum == 1){
-			printf("Found match for [%d][%d].\n", ival, col);
+//			printf("Found match for [%d][%d].\n", ival, col);
 			Grid->values[ival][col] = opt;
 			for (int r = 0; r < OPTIONS; r++){
 				if (r != (opt-1)){
@@ -236,7 +236,7 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 	int col = 0;
 	int rmin, cmin, rmax, cmax;
 //	printf("bsum = %d\n", bsum);
-	printf("Checking box %d.\n", box);
+//	printf("Checking box %d.\n", box);
 	switch (box) {
 		case 1:
 			rmin = 0;
@@ -316,7 +316,7 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 			}		
 		}
 		if (bsum == 1){
-			printf("Found match for [%d][%d].\n", row, col);
+//			printf("Found match for [%d][%d].\n", row, col);
 			Grid->values[row][col] = opt;
 			for (int b = 0; b < OPTIONS; b++){
 				if (b != (opt-1)){
@@ -333,7 +333,7 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box){
 void cgrid(struct grid* Grid, struct tgrid* tGrid){
 	int optsum = 0;
 	int opt = 0;
-	printf("Checking grid for single options.\n");
+//	printf("Checking grid for single options.\n");
 	for (int i = 0; i < ROWS; i++){
 		for (int j = 0; j < COLUMNS; j++){
 			for (int k = 0; k < OPTIONS; k++){
@@ -342,10 +342,10 @@ void cgrid(struct grid* Grid, struct tgrid* tGrid){
 					opt = (k+1);
 				}
 			}
-			printf("[%d][%d] optsum = %d\n", i, j, optsum);
+//			printf("[%d][%d] optsum = %d\n", i, j, optsum);
 			if (optsum == 1){
 				Grid->values[i][j] = opt;
-				printf("Found match for [%d][%d].\n", i, j);
+//				printf("Found match for [%d][%d].\n", i, j);
 			}
 			opt = 0;
 			optsum = 0;
@@ -354,7 +354,7 @@ void cgrid(struct grid* Grid, struct tgrid* tGrid){
 }
 
 void updrctgrid(const struct grid* Grid, struct tgrid* tGrid){
-	printf("Updating temp grid.\n");
+//	printf("Updating temp grid.\n");
 	for (int i = 0; i < ROWS; i++){
 		for (int j = 0; j < COLUMNS; j++){
 			if (Grid->values[i][j] != 0){
@@ -375,7 +375,7 @@ void updrctgrid(const struct grid* Grid, struct tgrid* tGrid){
 
 int chkgrid(const struct grid* Grid){
 	int sum = 0;
-	printf("Calculating sum.\n");
+//	printf("Calculating sum.\n");
 	for (int i = 0; i < ROWS; i++){
 		for (int j = 0; j < COLUMNS; j++){
 			sum += Grid->values[i][j];
