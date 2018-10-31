@@ -5,16 +5,20 @@
  * 4 Oct 2018
  */
 
+/* Header guard */
 #ifndef SOLVER_H
 #define SOLVER_H
 
+/* Define for ease of reading code */
 #define ROWS 9
 #define COLUMNS 9
 #define OPTIONS 9
 
+/* Include necessary headers */
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Set possible return values */
 enum results {
 	SOLVED,
 	INV_ARGS,
@@ -22,6 +26,7 @@ enum results {
 	TPTR_FAIL
 };
 
+/* Set grid and temporary grid structures */
 struct grid {
 	int status;
 	int values[ROWS][COLUMNS];
@@ -32,6 +37,7 @@ struct tgrid {
 	int tvalues[ROWS][COLUMNS][OPTIONS];
 };
 
+/* Function prototypes. See funcs.c */
 struct grid* ngrid(void);
 struct tgrid* ntgrid(void);
 void fgrid(struct grid* Grid);
@@ -48,6 +54,7 @@ void dtgrid(struct tgrid* tGrid);
 void ptgrid(const struct tgrid* tGrid);
 int chkgrid(const struct grid* Grid);
 
+/* End header guard */
 #endif
 
 

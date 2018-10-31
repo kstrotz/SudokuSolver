@@ -5,11 +5,12 @@
  * 4 Oct 2018
  */
 
+/* Include solver header */
 #include "solver.h"
 
 int main(int argc, char** argv){
 	
-	// This program accepts no command line arguments.
+	/* This program accepts no command line arguments. */
 	if (argc > 1){
 		fprintf(stderr, "Usage: %s\n", argv[0]);
 		return INV_ARGS;
@@ -22,21 +23,21 @@ int main(int argc, char** argv){
 		return GPTR_FAIL;
 	}
 
-// Compile-time option for a pre-filled test grid. To use compile with '-D TEST' flag in gcc.
+/* Compile-time option for a pre-filled test grid. To use compile with '-D TEST' flag in gcc. */
 #ifndef TEST
 	fgrid(Grid);
 #else
 	fgridtst(Grid);
 #endif
 
-	// Initialize temp grid and exit if failed.
+	/* Initialize temp grid and exit if failed. */
 	struct tgrid* tGrid = ntgrid();
 	if (tGrid == NULL){
 		fprintf(stderr, "Unable to create new temp grid.\n");
 		return TPTR_FAIL;
 	}
 
-	// Fill temp grid based on grid status.
+	/* Fill temp grid based on grid status. */
 	ftgrid(Grid, tGrid);
 	int sum = 0;
 	pgrid(Grid);
