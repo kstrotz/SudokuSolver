@@ -9,6 +9,8 @@ variety of important topics:
 	- Pointers
 	- Structures
 	- Enums
+	- If-else statements
+	- Switch statements
 	- For loops
 	- While loops
 	- Basic error checking

@@ -30,6 +30,10 @@ int main(int argc, char** argv){
 	fgridtst(Grid);
 #endif
 
+
+	/* Set intial sum to zero to ensure one loop runs */
+	int sum = 0;
+
 	/* Initialize temp grid and exit if failed. */
 	struct tgrid* tGrid = ntgrid();
 	if (tGrid == NULL){
@@ -37,57 +41,52 @@ int main(int argc, char** argv){
 		return TPTR_FAIL;
 	}
 
-	/* Fill temp grid based on grid status. */
+	/* Fill temp grid based on grid status and print grid. */
 	ftgrid(Grid, tGrid);
-	int sum = 0;
 	pgrid(Grid);
-//	ptgrid(tGrid);
+
+	/* Begin central loop */	
 	while (sum != 405){
-//	for (int y = 0; y < 3; y++){
+
+		/* Check each row */
 		for (int i = 0; i < ROWS; i++){
 			crow(Grid, tGrid, i);
 		}
-		sum = chkgrid(Grid);
-//		printf("sum: %d\n", sum);
-//		pgrid(Grid);
+
+		/* Check each column */
 		for (int j = 0; j < COLUMNS; j++){
 			ccol(Grid, tGrid, j);
 		}
-		sum = chkgrid(Grid);
-//		printf("sum: %d\n", sum);
-//		pgrid(Grid);
+
+		/* Check each box */
 		for (int m = 1; m <= 9; m++){
 			cbox(Grid, tGrid, m);
 		}
-		sum = chkgrid(Grid);
-//		printf("sum: %d\n", sum);
-//		pgrid(Grid);
-//		updrctgrid(Grid, tGrid);
+		
 		for (int m = 1; m <= 9; m++){
 			cbox(Grid, tGrid, m);
 		}
-		sum = chkgrid(Grid);
-//		printf("sum: %d\n", sum);
-//		pgrid(Grid);
-		cgrid(Grid, tGrid);
-//		pgrid(Grid);
-		sum = chkgrid(Grid);
-//		printf("sum: %d\n", sum);
-//		pgrid(Grid);
-//		ptgrid(tGrid);
+
+		/* Update tGrid */
 		updrctgrid(Grid, tGrid);
+
+		/* Check grid for single options */
 		cgrid(Grid, tGrid);
+
+		/* Calculate grid sum for comparison */
 		sum = chkgrid(Grid);
-//		printf("sum: %d\n", sum);
-//		ptgrid(tGrid);
-//	}
 	}
+
+	/* Print arrows and solved grid */
 	printf("  |   |   |   |   |   |   |   |   |");
 	printf("\n \\ / \\ / \\ / \\ / \\ / \\ / \\ / \\ / \\ /");
 	printf("\n  *   *   *   *   *   *   *   *   *\n\n");
 	pgrid(Grid);
+
+	/* Free grid and temporary grid */
 	free(Grid);
 	free(tGrid);
-	
+
+	/* Return 0 */	
 	return SOLVED;
 }
