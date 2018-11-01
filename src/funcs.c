@@ -62,10 +62,12 @@ void fgrid(struct grid* Grid){
 	for (int i = 0; i < ROWS; i++){
 		for (int j = 0; j < COLUMNS; j++){
 			printf("Enter [%d][%d]: ", (i+1), (j+1));
-			scanf("%d", &(Grid->values[i][j]));
-			if (Grid->values[i][j] < 0 || Grid->values[i][j] > 9){
-				fprintf(stderr, "[ ERROR ] Invalid numeric entry.\n");
-			}
+			do {
+				scanf("%d", &(Grid->values[i][j]));
+				if (Grid->values[i][j] < 0 || Grid->values[i][j] > 9){
+					fprintf(stderr, "[ ERROR ] Invalid numeric entry.\n");
+				}
+			} while (Grid->values[i][j] < 0 || Grid->values[i][j] > 9);
 		}
 	}
 }
@@ -372,7 +374,14 @@ void updrctgrid(const struct grid* Grid, struct tgrid* tGrid){
 		}
 	}
 }
-
+/*
+void updbtgrid(const struct grid* Grid, struct tgrid* tGrid){
+	for (int i = 0; i < 7; i+=3){
+		for (int j = 0; j < 7i; r <; j+=3){
+			for (int r = i; r < (i+3); r++){
+				for (int c = j; c < (j+3); c++){
+					if
+*/
 int chkgrid(const struct grid* Grid){
 	int sum = 0;
 //	printf("Calculating sum.\n");

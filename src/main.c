@@ -16,7 +16,7 @@ int main(int argc, char** argv){
 		return INV_ARGS;
 	}
 
-	// Initialize grid and exit if failed.
+	/* Initialize grid and exit if failed. */
 	struct grid* Grid = ngrid();
 	if (Grid == NULL){
 		fprintf(stderr, "Unable to create new grid.\n");
