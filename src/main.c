@@ -33,6 +33,7 @@ int main(int argc, char** argv){
 
 	/* Set intial sum to zero to ensure one loop runs */
 	int sum = 0;
+	int prvsum = 0;
 
 	/* Initialize temp grid and exit if failed. */
 	struct tgrid* tGrid = ntgrid();
@@ -47,7 +48,8 @@ int main(int argc, char** argv){
 
 	/* Begin central loop */	
 	while (sum != 405){
-
+		
+		prvsum = sum;
 		/* Check each row */
 		for (int i = 0; i < ROWS; i++){
 			crow(Grid, tGrid, i);
@@ -69,12 +71,22 @@ int main(int argc, char** argv){
 
 		/* Update tGrid */
 		updrctgrid(Grid, tGrid);
+		for (int n = 1; n <= 9; n++){
+			updbtgrid(Grid, tGrid, n);
+		}
 
 		/* Check grid for single options */
 		cgrid(Grid, tGrid);
 
 		/* Calculate grid sum for comparison */
 		sum = chkgrid(Grid);
+		printf("sum = %d\n", sum);
+		if (sum == prvsum){
+			printf("[  ALERT  ] No progress made. Exiting.\n\n");
+			free(Grid);
+			free(tGrid);
+			return NO_PROG;
+		}
 	}
 
 	/* Print arrows and solved grid */

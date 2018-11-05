@@ -23,7 +23,8 @@ enum results {
 	SOLVED,
 	INV_ARGS,
 	GPTR_FAIL,
-	TPTR_FAIL
+	TPTR_FAIL,
+	NO_PROG
 };
 
 /* Set grid and temporary grid structures */
@@ -44,7 +45,7 @@ void fgrid(struct grid* Grid);
 void fgridtst(struct grid* Grid);
 void ftgrid(const struct grid* Grid, struct tgrid* tGrid);
 void updrctgrid(const struct grid* Grid, struct tgrid* tGrid);
-void updbtgrid(const struct grid* Grid, struct tgrid* tGrid);
+void updbtgrid(const struct grid* Grid, struct tgrid* tGrid, int box);
 void crow(struct grid* Grid, struct tgrid* tGrid, int row);
 void ccol(struct grid* Grid, struct tgrid* tGrid, int col);
 void cbox(struct grid* Grid, struct tgrid* tGrid, int box);

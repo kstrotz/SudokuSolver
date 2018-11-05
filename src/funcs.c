@@ -374,14 +374,86 @@ void updrctgrid(const struct grid* Grid, struct tgrid* tGrid){
 		}
 	}
 }
-/*
-void updbtgrid(const struct grid* Grid, struct tgrid* tGrid){
-	for (int i = 0; i < 7; i+=3){
-		for (int j = 0; j < 7i; r <; j+=3){
-			for (int r = i; r < (i+3); r++){
-				for (int c = j; c < (j+3); c++){
-					if
-*/
+
+void updbtgrid(const struct grid* Grid, struct tgrid* tGrid, int box){
+	int rmin, cmin, rmax, cmax;
+	switch (box) {
+		case 1:
+			rmin = 0;
+			cmin = 0;
+			rmax = 3;
+			cmax = 3;
+			break;
+		case 2:	
+			rmin = 0;
+			cmin = 3;
+			rmax = 3;
+			cmax = 6;
+			break;
+		case 3:	
+			rmin = 0;
+			cmin = 6;
+			rmax = 3;
+			cmax = 9;
+			break;
+		case 4:
+			rmin = 3;
+			cmin = 0;
+			rmax = 6;
+			cmax = 3;
+			break;
+		case 5:
+			rmin = 3;
+			cmin = 3;
+			rmax = 6;
+			cmax = 6;
+			break;
+		case 6:	
+			rmin = 3;
+			cmin = 6;
+			rmax = 6;
+			cmax = 9;
+			break;
+		case 7:
+			rmin = 6;
+			cmin = 0;
+			rmax = 9;
+			cmax = 3;
+			break;
+		case 8:
+			rmin = 6;
+			cmin = 3;
+			rmax = 9;
+			cmax = 6;
+			break;
+		case 9:
+			rmin = 6;
+			cmin = 6;
+			rmax = 9;
+			cmax = 9;
+			break;
+		default:
+			rmin = 0;
+			cmin = 0;
+			rmax = 3;
+			cmax = 3;
+			break;
+	}
+	for (int i = rmin; i < rmax; i++){
+		for (int j = cmin; j < cmax; j++){
+			if (Grid->values[i][j] != 0){
+				for (int ti = rmin; ti < rmax; ti++){
+					for (int tj = cmin; tj < cmax; tj++){
+						if ((ti != i) || (tj != j)){
+							tGrid->tvalues[ti][tj][((Grid->values[i][j])-1)] = 0;
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
 int chkgrid(const struct grid* Grid){
 	int sum = 0;
 //	printf("Calculating sum.\n");
