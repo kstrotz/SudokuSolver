@@ -50,6 +50,12 @@ int main(int argc, char** argv){
 	while (sum != 405){
 		
 		prvsum = sum;
+
+		updrctgrid(Grid, tGrid);
+		for (int n = 1; n <= 9; n++){
+			updbtgrid(Grid, tGrid, n);
+		}
+
 		/* Check each row */
 		for (int i = 0; i < ROWS; i++){
 			crow(Grid, tGrid, i);
@@ -65,15 +71,12 @@ int main(int argc, char** argv){
 			cbox(Grid, tGrid, m);
 		}
 		
-		for (int m = 1; m <= 9; m++){
-			cbox(Grid, tGrid, m);
-		}
-
 		/* Update tGrid */
-		updrctgrid(Grid, tGrid);
-		for (int n = 1; n <= 9; n++){
-			updbtgrid(Grid, tGrid, n);
-		}
+//		updrctgrid(Grid, tGrid);
+
+//		for (int n = 1; n <= 9; n++){
+//			updbtgrid(Grid, tGrid, n);
+//		}
 
 		/* Check grid for single options */
 		cgrid(Grid, tGrid);
@@ -83,6 +86,9 @@ int main(int argc, char** argv){
 		printf("sum = %d\n", sum);
 		if (sum == prvsum){
 			printf("[  ALERT  ] No progress made. Exiting.\n\n");
+			printf("Final status:\n");
+			pgrid(Grid);
+			ptgrid(tGrid);
 			free(Grid);
 			free(tGrid);
 			return NO_PROG;
