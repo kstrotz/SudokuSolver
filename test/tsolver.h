@@ -48,5 +48,6 @@ void tcbox(struct box* Box, struct tbox* tBox);
 void pbox(const struct box* Box);
 void ptbox(const struct tbox* tBox);
 void ftbox(const struct box* Box, struct tbox* tBox);
+void updtbox(const struct box* Box, struct tbox* tBox);
 
 #endif

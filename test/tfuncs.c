@@ -172,3 +172,20 @@ void tcbox(struct box* Box, struct tbox* tBox){
 	}
 }
 
+void updtbox(const struct box* Box, struct tbox* tBox){
+	for (int i = 0; i < 3; i++){
+		for (int j = 0; j < 3; j++){
+			if (Box->bvalues[i][j] != 0){
+				for (int ti = 0; ti < 3; ti++){
+					for (int tj = 0; tj < 3; tj++){
+						if ((ti != i) || (tj != j)){
+							tBox->tbvalues[ti][tj][((Box->bvalues[i][j])-1)] = 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
