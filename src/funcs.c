@@ -465,3 +465,18 @@ int chkgrid(const struct grid* Grid){
 	return sum;
 }
 
+void ptgridsum(const struct tgrid* tGrid){
+	int sum;
+	struct grid* tmpGrid = ngrid();
+	for (int i = 0; i < ROWS; i++){
+		for (int j = 0; j < COLUMNS; j++){
+			sum = 0;
+			for (int k = 0; k < OPTIONS; k++){
+				sum += tGrid->tvalues[i][j][k];
+			}
+			tmpGrid->values[i][j] = sum;
+		}
+	}
+	pgrid(tmpGrid);
+	free(tmpGrid);
+}

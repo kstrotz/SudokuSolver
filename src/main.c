@@ -88,7 +88,7 @@ int main(int argc, char** argv){
 			printf("[  ALERT  ] No progress made. Exiting.\n\n");
 			printf("Final status:\n");
 			pgrid(Grid);
-			ptgrid(tGrid);
+			ptgridsum(tGrid);
 			free(Grid);
 			free(tGrid);
 			return NO_PROG;
