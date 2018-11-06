@@ -89,6 +89,7 @@ int main(int argc, char** argv){
 			printf("Final status:\n");
 			pgrid(Grid);
 			ptgridsum(tGrid);
+			ptopts(tGrid);
 			free(Grid);
 			free(tGrid);
 			return NO_PROG;

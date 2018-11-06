@@ -55,6 +55,7 @@ void dgrid(struct grid* Grid);
 void dtgrid(struct tgrid* tGrid);
 void ptgrid(const struct tgrid* tGrid);
 void ptgridsum(const struct tgrid* tGrid);
+void ptopts(const struct tgrid* tGrid);
 int chkgrid(const struct grid* Grid);
 
 /* End header guard */

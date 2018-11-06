@@ -480,3 +480,17 @@ void ptgridsum(const struct tgrid* tGrid){
 	pgrid(tmpGrid);
 	free(tmpGrid);
 }
+
+void ptopts(const struct tgrid* tGrid){
+	for (int i = 0; i < ROWS; i++){
+		for (int j = 0; j < COLUMNS; j++){
+			printf("\n[%d][%d]: ", i, j);
+			for (int k = 0; k < OPTIONS; k++){
+				if (tGrid->tvalues[i][j][k] == 1){
+					printf("%d", (k+1));
+				}
+			}
+		}
+	}
+	printf("\n\n");
+}
