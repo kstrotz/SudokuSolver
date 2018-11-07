@@ -355,6 +355,29 @@ void cgrid(struct grid* Grid, struct tgrid* tGrid){
 	}	
 }
 
+void frstguess(struct grid* tmpGrid, struct tgrid* tGrid){
+	int chk = 0;
+	for (int i = 0; i < ROWS; i++){
+	if (chk){
+		break;
+	}
+		for (int j = 0; j < COLUMNS; j++){
+			if (chk){
+				break;
+			}
+			if (!(tmpGrid->values[i][j])){
+				for (int k = 0; k < OPTIONS; k++){
+					if (tGrid->tvalues[i][j][k] == 1){
+						tmpGrid->values[i][j] = (k+1);
+						chk = 1;
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
 void updrctgrid(const struct grid* Grid, struct tgrid* tGrid){
 //	printf("Updating temp grid.\n");
 	for (int i = 0; i < ROWS; i++){

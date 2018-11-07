@@ -34,6 +34,9 @@ int main(int argc, char** argv){
 	/* Set intial sum to zero to ensure one loop runs */
 	int sum = 0;
 	int prvsum = 0;
+	int guess = 0;
+	struct grid* holdGrid = NULL;
+	struct grid* tmpGrid = NULL;
 
 	/* Initialize temp grid and exit if failed. */
 	struct tgrid* tGrid = ntgrid();
@@ -72,11 +75,11 @@ int main(int argc, char** argv){
 		}
 		
 		/* Update tGrid */
-//		updrctgrid(Grid, tGrid);
+		updrctgrid(Grid, tGrid);
 
-//		for (int n = 1; n <= 9; n++){
-//			updbtgrid(Grid, tGrid, n);
-//		}
+		for (int n = 1; n <= 9; n++){
+			updbtgrid(Grid, tGrid, n);
+		}
 
 		/* Check grid for single options */
 		cgrid(Grid, tGrid);
@@ -85,6 +88,7 @@ int main(int argc, char** argv){
 		sum = chkgrid(Grid);
 		printf("sum = %d\n", sum);
 		if (sum == prvsum){
+			/*
 			printf("[  ALERT  ] No progress made. Exiting.\n\n");
 			printf("Final status:\n");
 			pgrid(Grid);
@@ -93,6 +97,22 @@ int main(int argc, char** argv){
 			free(Grid);
 			free(tGrid);
 			return NO_PROG;
+			*/
+			if(!guess){
+				struct grid* holdGrid = Grid;
+				struct grid* tmpGrid = ngrid();
+				for (int i = 0; i < ROWS; i++){
+					for (int j = 0; j < COLUMNS; j++){
+						tmpGrid->values[i][j] = Grid->values[i][j];
+					}
+				}
+				Grid = tmpGrid;
+				guess = 1;
+				frstguess(tmpGrid, tGrid);
+			} else {
+				Grid = holdGrid;
+				free(tmpGrid);
+			}
 		}
 	}
 
