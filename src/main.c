@@ -51,9 +51,11 @@ int main(int argc, char** argv){
 
 	/* Begin central loop */	
 	while (sum != 405){
-		
+	
+		/* Reset prvsum */	
 		prvsum = sum;
 
+		/* Update tGrid based on new grid status */
 		updrctgrid(Grid, tGrid);
 		for (int n = 1; n <= 9; n++){
 			updbtgrid(Grid, tGrid, n);
@@ -75,11 +77,10 @@ int main(int argc, char** argv){
 		}
 		
 		/* Update tGrid */
-		updrctgrid(Grid, tGrid);
-
-		for (int n = 1; n <= 9; n++){
-			updbtgrid(Grid, tGrid, n);
-		}
+//		updrctgrid(Grid, tGrid);
+//		for (int n = 1; n <= 9; n++){
+//			updbtgrid(Grid, tGrid, n);
+//		}
 
 		/* Check grid for single options */
 		cgrid(Grid, tGrid);
