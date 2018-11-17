@@ -76,43 +76,30 @@ int main(int argc, char** argv){
 			cbox(Grid, tGrid, m);
 		}
 		
-		/* Update tGrid */
-//		updrctgrid(Grid, tGrid);
-//		for (int n = 1; n <= 9; n++){
-//			updbtgrid(Grid, tGrid, n);
-//		}
-
 		/* Check grid for single options */
 		cgrid(Grid, tGrid);
 
 		/* Calculate grid sum for comparison */
 		sum = chkgrid(Grid);
-		printf("sum = %d\n", sum);
+
+		/* Check for lack of progress */
 		if (sum == prvsum){
-			/*
-			printf("[  ALERT  ] No progress made. Exiting.\n\n");
-			printf("Final status:\n");
-			pgrid(Grid);
-			ptgridsum(tGrid);
-			ptopts(tGrid);
-			free(Grid);
-			free(tGrid);
-			return NO_PROG;
-			*/
 			if(!guess){
-				struct grid* holdGrid = Grid;
-				struct grid* tmpGrid = ngrid();
+				holdGrid = Grid;
+				tmpGrid = ngrid();
 				for (int i = 0; i < ROWS; i++){
 					for (int j = 0; j < COLUMNS; j++){
 						tmpGrid->values[i][j] = Grid->values[i][j];
 					}
 				}
-				Grid = tmpGrid;
 				guess = 1;
 				frstguess(tmpGrid, tGrid);
+				Grid = tmpGrid;
 			} else {
 				Grid = holdGrid;
-				free(tmpGrid);
+				fprintf(stderr, "[  FAILED  ] No progress found!\n");
+				fprintf(stderr, "This puzzle may require guessing.\n\n");
+				break;
 			}
 		}
 	}
@@ -124,8 +111,10 @@ int main(int argc, char** argv){
 	pgrid(Grid);
 
 	/* Free grid and temporary grid */
-	free(Grid);
+	free(tmpGrid);
+	free(holdGrid);
 	free(tGrid);
+	Grid = NULL;
 
 	/* Return 0 */	
 	return SOLVED;
