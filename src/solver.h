@@ -52,8 +52,6 @@ void cbox(struct grid* Grid, struct tgrid* tGrid, int box);
 void cgrid(struct grid* Grid, struct tgrid* tGrid);
 void frstguess(struct grid* tmpGrid, struct tgrid* tGrid);
 void pgrid(const struct grid* Grid);
-void dgrid(struct grid* Grid);
-void dtgrid(struct tgrid* tGrid);
 void ptgrid(const struct tgrid* tGrid);
 void ptgridsum(const struct tgrid* tGrid);
 void ptopts(const struct tgrid* tGrid);
