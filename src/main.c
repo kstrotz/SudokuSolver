@@ -110,12 +110,15 @@ int main(int argc, char** argv){
 	printf("\n  *   *   *   *   *   *   *   *   *\n\n");
 	pgrid(Grid);
 
-	/* Free grid and temporary grid */
+	/* Free grid and temporary grid, assign NULL pointers */
 	free(tmpGrid);
 	free(holdGrid);
 	free(tGrid);
 	Grid = NULL;
+	tmpGrid = NULL;
+	holdGrid = NULL;
+	tGrid = NULL;
 
-	/* Return 0 */	
+	/* Return 0 if solved*/	
 	return SOLVED;
 }
