@@ -50,7 +50,7 @@ void crow(struct grid* Grid, struct tgrid* tGrid, int row);
 void ccol(struct grid* Grid, struct tgrid* tGrid, int col);
 void cbox(struct grid* Grid, struct tgrid* tGrid, int box);
 void cgrid(struct grid* Grid, struct tgrid* tGrid);
-void frstguess(struct grid* tmpGrid, struct tgrid* tGrid);
+int* frstguess(struct grid* tmpGrid, struct tgrid* tGrid); 
 void pgrid(const struct grid* Grid);
 void ptgrid(const struct tgrid* tGrid);
 void ptgridsum(const struct tgrid* tGrid);

@@ -31,10 +31,11 @@ int main(int argc, char** argv){
 #endif
 
 
-	/* Set intial sum to zero to ensure one loop runs */
+	/* Set intial variables to ensure one loop runs */
 	int sum = 0;
 	int prvsum = 0;
 	int guess = 0;
+	int* alt = (int*) malloc(3*sizeof(int));
 	struct grid* holdGrid = NULL;
 	struct grid* tmpGrid = NULL;
 
@@ -84,7 +85,9 @@ int main(int argc, char** argv){
 
 		/* Check for lack of progress */
 		if (sum == prvsum){
-			if(!guess){
+			/* If we haven't had to guess before */
+			if(guess < 2){
+				/* Create new grid to guess on while preserving original */
 				holdGrid = Grid;
 				tmpGrid = ngrid();
 				for (int i = 0; i < ROWS; i++){
@@ -92,8 +95,9 @@ int main(int argc, char** argv){
 						tmpGrid->values[i][j] = Grid->values[i][j];
 					}
 				}
+				/* Set variable to indicate a guess has been made */
 				guess = 1;
-				frstguess(tmpGrid, tGrid);
+				alt = frstguess(tmpGrid, tGrid);
 				Grid = tmpGrid;
 			} else {
 				Grid = holdGrid;
