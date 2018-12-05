@@ -97,7 +97,8 @@ int main(int argc, char** argv){
 				}
 				/* Set variable to indicate a guess has been made */
 				guess = 1;
-				alt = frstguess(tmpGrid, tGrid);
+				ptgrid(tGrid);
+				frstguess(tmpGrid, tGrid, alt);
 				Grid = tmpGrid;
 			} else {
 				Grid = holdGrid;
@@ -113,11 +114,12 @@ int main(int argc, char** argv){
 	printf("\n \\ / \\ / \\ / \\ / \\ / \\ / \\ / \\ / \\ /");
 	printf("\n  *   *   *   *   *   *   *   *   *\n\n");
 	pgrid(Grid);
-
+	printf("\n\n%d %d %d\n\n", alt[0], alt[1], alt[2]);
 	/* Free grid and temporary grid, assign NULL pointers */
 	free(tmpGrid);
 	free(holdGrid);
 	free(tGrid);
+	free(alt);
 	Grid = NULL;
 	tmpGrid = NULL;
 	holdGrid = NULL;

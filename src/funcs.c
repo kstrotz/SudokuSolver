@@ -355,10 +355,15 @@ void cgrid(struct grid* Grid, struct tgrid* tGrid){
 	}	
 }
 
-int* frstguess(struct grid* tmpGrid, struct tgrid* tGrid){
+void frstguess(struct grid* tmpGrid, struct tgrid* tGrid, int* alt){
 	int chk = 0;
 	int sum = 0;
-	int* alt = {0,0,0};
+	alt[0] = 0;
+	alt[1] = 0;
+	alt[2] = 0;
+
+	printf("[  ALERT  ] Guessing required!\n");
+
 	for (int i = 0; i < ROWS; i++){
 	if (chk){
 		break;
@@ -375,6 +380,10 @@ int* frstguess(struct grid* tmpGrid, struct tgrid* tGrid){
 							alt[0] = i;
 							alt[1] = j;
 							alt[2] = (k+1);
+						} else {
+							alt[0] = 0;
+							alt[1] = 0;
+							alt[2] = 0;
 						}
 					}
 				}
@@ -390,8 +399,6 @@ int* frstguess(struct grid* tmpGrid, struct tgrid* tGrid){
 			}
 		}
 	}
-	
-	return alt;	
 }
 
 void updrctgrid(const struct grid* Grid, struct tgrid* tGrid){
